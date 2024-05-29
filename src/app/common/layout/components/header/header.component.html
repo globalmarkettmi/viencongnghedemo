@@ -1,0 +1,61 @@
+<div
+  [ngClass]="headerContainerCssClasses"
+  class="d-flex align-items-stretch justify-content-between"
+>
+  <!-- begin::Aside mobile toggle -->
+  <ng-container *ngIf="asideDisplay">
+    <div
+      class="d-flex align-items-center d-lg-none ms-n3 me-1"
+      title="Show aside menu"
+    >
+      <div
+        class="
+          btn btn-icon btn-active-light-primary
+          w-30px
+          h-30px
+          w-md-40px
+          h-md-40px
+        "
+        id="kt_aside_mobile_toggle"
+      >
+        <span
+          [inlineSVG]="'./assets/media/icons/duotune/abstract/abs015.svg'"
+          class="svg-icon svg-icon-1"
+        ></span>
+      </div>
+    </div>
+  </ng-container>
+  <!-- end::Aside mobile toggle -->
+
+  <!-- begin::Logo -->
+  <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
+    <a routerLink="/dashboard" class="d-lg-none">
+      <img src="/assets/logo.png" class="h-20px" />
+    </a>
+  </div>
+  <!-- end::Logo -->
+
+  <!-- begin::Wrapper -->
+  <div
+    class="d-flex align-items-stretch justify-content-between flex-lg-grow-1"
+  >
+
+
+    <ng-container>
+      <div class="d-flex align-items-center" id="kt_header_nav">
+        <div class="page-title d-flex">
+          <h1 class="d-flex align-items-center text-info fw-bolder my-1 fs-3 text-uppercase">
+            
+          </h1>
+
+        </div>
+
+      </div>
+    </ng-container>
+
+    <div class="d-flex align-items-stretch flex-shrink-0">
+      <app-topbar class="d-flex align-items-stretch flex-shrink-0"></app-topbar>
+    </div>
+  </div>
+  <!-- end::Wrapper -->
+</div>

@@ -1,0 +1,184 @@
+<!--begin::Toolbar-->
+<div class="toolbar" id="kt_toolbar">
+    <!--begin::Container-->
+    <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
+        <!--begin::Page title-->
+        <div data-kt-swapper="true" data-kt-swapper-mode="prepend"
+            data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
+            class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
+            <!--begin::Title-->
+            <h1 class="d-flex text-dark fw-bolder fs-3 align-items-center my-1">Report people counting by time</h1>
+            <!--end::Title-->
+        </div>
+
+    </div>
+    <!--end::Container-->
+</div>
+<!--end::Toolbar-->
+
+<div class="post d-flex flex-column-fluid">
+    <!--begin::Container-->
+    <div class="container-xxl">
+        <!--begin::Products-->
+        <div class="card">
+
+            <div class="card-body">
+                <div class="row mb-3">
+                    <div class="col-md-3 mb-3">
+                        <label for="" class="fw-bold">Choose view by</label>
+                        <select class="form-select" [(ngModel)]="chooseView">
+                            <option value="hour">Hour</option>
+                            <option value="day">Day</option>
+                            <option value="month">Month</option>
+                            <option value="year">Year</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-3" *ngIf="chooseView === 'day' || chooseView ==='hour'">
+                        <label for="" class="fw-bold">Choose Date</label>
+                        <div class="input-group">
+                            <input
+                                class="form-control"
+                                placeholder="yyyy-mm-dd"
+                                name="dp"
+                                [(ngModel)]="modelTime"
+                                ngbDatepicker
+                                #d="ngbDatepicker"
+                            />
+                            <button class="btn btn-outline-secondary text-danger" (click)="d.toggle()" type="button"><i class="fa-solid fa-calendar-days"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3" *ngIf="chooseView === 'month'">
+                        <label for="" class="fw-bold">Choose Month</label>
+                        <select class="form-select">
+                            <option value="1">January</option>
+                            <option value="2">February</option>
+                            <option value="3">March</option>
+                            <option value="4">April</option>
+                            <option value="5">May</option>
+                            <option value="6">June</option>
+                            <option value="7">July</option>
+                            <option value="8">August</option>
+                            <option value="9">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                        </select>
+
+                    </div>
+                    <div class="col-md-3"  *ngIf="chooseView === 'month' || chooseView === 'year'">
+                        <label for="" class="fw-bold">Year</label>
+                        <select class="form-select">
+                            <option value="2021">2021</option>
+                            <option value="2022">2022</option>
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary btn-sm">View data</button>
+            </div>
+
+        </div>
+        <div class="card card-flush">
+
+            <!--begin::Card body-->
+            <div class="card-body pt-0 table-responsive" *ngIf="chooseView === 'hour'">
+                <table class="table ">
+                    <!--begin::Table head-->
+                    <thead>
+                        <!--begin::Table row-->
+                        <tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0">
+
+                            <th>Hour</th>
+                            <th class="text-center ">People in</th>
+                            <th class="text-center ">People out</th>
+                            <th class="text-center">Weather</th>
+                            <th class="text-center">Staying people</th>
+                        </tr>
+                        <!--end::Table row-->
+                    </thead>
+                    <!--end::Table head-->
+                    <!--begin::Table body-->
+                    <tbody class="fw-bold ">
+                        <!--begin::Table row-->
+                        <tr *ngFor="let item of reportTimeData">
+
+                        
+                            <!--end::SKU=-->
+                            <!--begin::Qty=-->
+                            <td class="text-start" >
+                                <span class="fw-bolder">{{item.hourRange}}</span>
+                            </td>
+                            <td class="text-center" >
+                                <span class="fw-bolder">{{item.in}}</span>
+                            </td>
+                            <td class="text-center" >
+                                <span class="fw-bolder">{{item.out}}</span>
+                            </td>
+                            <td class="text-center" >
+                                <span class="fw-bolder">{{item.weather}}</span>
+                            </td>
+                            <td class="text-center " >
+                                <span class="fw-bolder">{{item.staying}}</span>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+
+                </table>
+            </div>
+            <div class="card-body pt-0 table-responsive" *ngIf="chooseView !== 'hour'">
+                <table class="table ">
+                    <!--begin::Table head-->
+                    <thead>
+                        <!--begin::Table row-->
+                        <tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0">
+
+                            <th>Date</th>
+                            <th class="text-center ">People in</th>
+                            <th class="text-center ">People out</th>
+                            <th class="text-center">Weather</th>
+                            <th class="text-center">Staying people</th>
+                        </tr>
+                        <!--end::Table row-->
+                    </thead>
+                    <!--end::Table head-->
+                    <!--begin::Table body-->
+                    <tbody class="fw-bold ">
+                        <!--begin::Table row-->
+                        <tr *ngFor="let item of reportDateData">
+
+                        
+                            <!--end::SKU=-->
+                            <!--begin::Qty=-->
+                            <td class="text-start" >
+                                <span class="fw-bolder">{{item.date}}</span>
+                            </td>
+                            <td class="text-center" >
+                                <span class="fw-bolder">{{item.in}}</span>
+                            </td>
+                            <td class="text-center" >
+                                <span class="fw-bolder">{{item.out}}</span>
+                            </td>
+                            <td class="text-center" >
+                                <span class="fw-bolder">{{item.weather}}</span>
+                            </td>
+                            <td class="text-center " >
+                                <span class="fw-bolder">{{item.staying}}</span>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>

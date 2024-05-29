@@ -1,0 +1,276 @@
+<!--begin::Toolbar-->
+<div class="toolbar" id="kt_toolbar">
+    <!--begin::Container-->
+    <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
+        <!--begin::Page title-->
+        <div data-kt-swapper="true" data-kt-swapper-mode="prepend"
+            data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
+            class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
+            <!--begin::Title-->
+            <h1 class="d-flex text-dark fw-bolder fs-3 align-items-center my-1">Dashboard</h1>
+            <!--end::Title-->
+        </div>
+        <!--end::Page title-->
+
+    </div>
+    <!--end::Container-->
+</div>
+<!--end::Toolbar-->
+
+
+<!--begin::Row-->
+<div class="row g-5 g-xl-10">
+    <!--begin::Col-->
+    <div class="col-xl-4">
+        <div class="card card-xl-stretch pb-5">
+            <!--begin::Header-->
+            <div class="card-header border-0 bg-danger py-5">
+                <h3 class="card-title fw-bolder text-white">Sumary</h3>
+             
+            </div>
+            <!--end::Header-->
+            <!--begin::Body-->
+            <div class="card-body p-5">
+       
+                <!--begin::Stats-->
+                <div class="card-p">
+                    <!--begin::Row-->
+                    <div class="row g-0">
+                        <!--begin::Col-->
+                        <div class="col bg-light-warning px-6 py-8 rounded-2 me-7 mb-7">
+                            <!--begin::Svg Icon | path: icons/duotune/general/gen032.svg-->
+                                <h1>50</h1>
+                            <!--end::Svg Icon-->
+                            <a href="#" class="text-warning fw-bold fs-6">Total camera</a>
+                        </div>
+                        <!--end::Col-->
+                        <!--begin::Col-->
+                        <div class="col bg-light-primary px-6 py-8 rounded-2 mb-7">
+                            <!--begin::Svg Icon | path: icons/duotune/finance/fin006.svg-->
+                            <h1>500</h1>
+                            <!--end::Svg Icon-->
+                            <a href="#" class="text-primary fw-bold fs-6">Total counting</a>
+                        </div>
+                        <!--end::Col-->
+                    </div>
+                    <!--end::Row-->
+                    <!--begin::Row-->
+                    <div class="row g-0">
+                        <!--begin::Col-->
+                        <div class="col bg-light-danger px-6 py-8 rounded-2 me-7">
+                            <!--begin::Svg Icon | path: icons/duotune/abstract/abs027.svg-->
+                            <h1>100</h1>
+                            <!--end::Svg Icon-->
+                            <a href="#" class="text-danger fw-bold fs-6 mt-2">People in</a>
+                        </div>
+                        <!--end::Col-->
+                        <!--begin::Col-->
+                        <div class="col bg-light-success px-6 py-8 rounded-2">
+                            <!--begin::Svg Icon | path: icons/duotune/communication/com010.svg-->
+                            <h1>200</h1>
+                            <!--end::Svg Icon-->
+                            <a href="#" class="text-success fw-bold fs-6 mt-2">People out</a>
+                        </div>
+                        <!--end::Col-->
+                    </div>
+                    <!--end::Row-->
+                </div>
+                <!--end::Stats-->
+            </div>
+            <!--end::Body-->
+        </div>
+    </div>
+    <!--end::Col-->
+    <!--begin::Col-->
+    <div class="col-xl-8">
+        <!--begin::Chart widget 18-->
+        <div class="card card-flush">
+            <!--begin::Header-->
+            <div class="card-header ">
+                <!--begin::Title-->
+                <h3 class="card-title align-items-start flex-column">
+                    <span class="card-label fw-bolder text-gray-800">People (In) by Hour</span>
+                </h3>
+                <!--end::Title-->
+             
+            </div>
+            <!--end::Header-->
+            <!--begin::Body-->
+            <div class="card-body">
+                <apx-chart
+                [series]="chartOptions.series"
+                [chart]="chartOptions.chart"
+                [dataLabels]="chartOptions.dataLabels"
+                [plotOptions]="chartOptions.plotOptions"
+                [yaxis]="chartOptions.yaxis"
+                [xaxis]="chartOptions.xaxis"
+                [stroke]="chartOptions.stroke"
+                [grid]="chartOptions.grid"
+                [fill]="chartOptions.fill"
+                [annotations]="chartOptions.annotations"
+              ></apx-chart>
+            </div>
+            <!--end: Card Body-->
+        </div>
+        <!--end::Chart widget 18-->
+    </div>
+    <!--end::Col-->
+</div>
+<!--end::Row-->
+
+<div class="row g-5 g-xl-10 mb-10">
+    <div class="col-12">
+        <div class="card card-flush">
+            <!--begin::Header-->
+            <div class="card-header ">
+                <!--begin::Title-->
+                <h3 class="card-title align-items-start flex-column">
+                    <span class="card-label fw-bolder text-gray-800">People in hour</span>
+                </h3>
+                <!--end::Title-->
+             
+            </div>
+            <!--end::Header-->
+            <!--begin::Body-->
+            <div class="card-body">
+                <apx-chart
+                [series]="chartOption2s.series"
+                [chart]="chartOption2s.chart"
+                [xaxis]="chartOption2s.xaxis"
+                [dataLabels]="chartOption2s.dataLabels"
+                [grid]="chartOption2s.grid"
+                [stroke]="chartOption2s.stroke"
+                [title]="chartOption2s.title"
+              ></apx-chart>
+            </div>
+            <!--end: Card Body-->
+        </div>
+    </div>
+</div>
+
+<div class="row g-5 g-xl-10 mb-10">
+    <div class="col-12">
+        <div class="card card-flush">
+            <!--begin::Header-->
+            <div class="card-header ">
+                <!--begin::Title-->
+                <h3 class="card-title align-items-start flex-column">
+                    <span class="card-label fw-bolder text-gray-800">People in day</span>
+                </h3>
+                <!--end::Title-->
+             
+            </div>
+            <!--end::Header-->
+            <!--begin::Body-->
+            <div class="card-body">
+                <apx-chart
+                [series]="chartInDay.series"
+                [chart]="chartInDay.chart"
+                [xaxis]="chartInDay.xaxis"
+                [dataLabels]="chartInDay.dataLabels"
+                [grid]="chartInDay.grid"
+                [stroke]="chartInDay.stroke"
+                [title]="chartInDay.title"
+              ></apx-chart>
+            </div>
+            <!--end: Card Body-->
+        </div>
+    </div>
+</div>
+
+<div class="row g-5 g-xl-10 mb-10">
+    <div class="col-6">
+        <div class="card card-flush">
+            <!--begin::Header-->
+            <div class="card-header ">
+                <!--begin::Title-->
+                <h3 class="card-title align-items-start flex-column">
+                    <span class="card-label fw-bolder text-gray-800">Block in 1 day</span>
+                </h3>
+                <!--end::Title-->
+             
+            </div>
+            <!--end::Header-->
+            <!--begin::Body-->
+            <div class="card-body">
+                <apx-chart
+                [series]="chartBlockinDay.series"
+                [chart]="chartBlockinDay.chart"
+                [xaxis]="chartBlockinDay.xaxis"
+                [grid]="chartBlockinDay.grid"
+                [stroke]="chartBlockinDay.stroke"
+                [plotOptions]="chartBlockinDay.plotOptions"
+              ></apx-chart>
+            </div>
+            <!--end: Card Body-->
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="card card-flush">
+            <!--begin::Header-->
+            <div class="card-header ">
+                <!--begin::Title-->
+                <h3 class="card-title align-items-start flex-column">
+                    <span class="card-label fw-bolder text-gray-800">Ratio of customers in block</span>
+                </h3>
+                <!--end::Title-->
+             
+            </div>
+            <!--end::Header-->
+            <!--begin::Body-->
+            <div class="card-body">
+                <apx-chart
+                [series]="chartBlockinDay2.series"
+                [chart]="chartBlockinDay2.chart"
+                [stroke]="chartBlockinDay2.stroke"
+              ></apx-chart>
+            </div>
+            <!--end: Card Body-->
+        </div>
+    </div>
+</div>
+
+<div class="row g-5 g-xl-10">
+    <div class="col-12">
+        <div class="card card-flush">
+            <!--begin::Header-->
+            <div class="card-header ">
+                <!--begin::Title-->
+                <h3 class="card-title align-items-start flex-column">
+                    <span class="card-label fw-bolder text-gray-800">Hue ZONE SOECO B2-12</span>
+                </h3>
+                <!--end::Title-->
+             
+            </div>
+            <!--end::Header-->
+            <!--begin::Body-->
+            <div class="card-body" id="myDiagramDiv" style="height: 500px;">
+              
+            </div>
+            <!--end: Card Body-->
+        </div>
+    </div>
+</div>
+
+
+<div class="row g-5 g-xl-10">
+    <div class="col-12">
+        <div class="card card-flush">
+            <!--begin::Header-->
+            <div class="card-header ">
+                <!--begin::Title-->
+                <h3 class="card-title align-items-start flex-column">
+                    <span class="card-label fw-bolder text-gray-800">Hue ZONE SOECO B2-22</span>
+                </h3>
+                <!--end::Title-->
+             
+            </div>
+            <!--end::Header-->
+            <!--begin::Body-->
+            <div class="card-body" id="myDiagramDiv2" style="height: 500px;">
+              
+            </div>
+            <!--end: Card Body-->
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<!--begin::Card-->
+<div class="card  overlay overflow-hidden">
+    <div class="card-body p-0">
+        <div class="overlay-wrapper">
+            <img (click)="showPopup()" [src]="imagePath" alt="" class="h-300px w-100 rounded "
+                style="object-fit: cover;" />
+        </div>
+        <div class="overlay-layer bg-dark bg-opacity-25">
+            <a href="javascript:void(0)" (click)="showPopup()" class="btn btn-light-primary btn-shadow ms-2">Xem Ảnh</a>
+            <a [hidden]="!isShowDelete" href="javascript:void(0)" (click)="sendDelete()"
+                class="btn btn-light-danger btn-shadow ms-2">Xóa Ảnh</a>
+        </div>
+    </div>
+</div>
+<!--end::Card-->
+
+<!-- The Modal -->
+<div #popupImageEl class="modalImage" (click)="closePopup()">
+
+
+
+    <!-- Modal Content (The Image) -->
+    <div class="modal-content">
+        <!-- The Close Button -->
+        <span (click)="closePopup()" class="close">&times;</span>
+        <img (click)="onSpanClick($event)" class="img-fluid" [src]="imagePath">
+        <!-- Modal Caption (Image Text) -->
+        <div class="caption">{{captionStr}}</div>
+       
+    </div>
+
+</div>
